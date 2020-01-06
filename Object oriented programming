@@ -1,1 +1,60 @@
+It's a user defined data type called Class.
+Variables of user defined data type(The type of class(class type)) is called Object.
+Example..................................
+Class Planet:
+      pass
+Earth=Planet()  #Earth & Venus is an Object (User defined variable)
+Venus=Planet()
+print(Earth)
+print(Venus)
+...........................................
+Classes are used to bind the Variables and functions together into a concrete unit.
 
+System defined class methods:
+__str__()
+
+Implement this method to achive the below purpose:
+
+1. If you want more informative human readable output when you print an object.
+2. If you want to explicitly convert an object into string
+
+__repr__()
+
+It's an ulternative method of __str__()
+
+__init__()
+
+This is a constructor function. Constructor helps to assign values to objects of your class.
+
+__del__()
+
+This is a destructor function. This function is called whenever an object is deleted.
+.....................Example............................................................
+class Point:
+
+    def __init__(self,p_x=0,p_y=0):
+        self.x=p_x
+        self.y=p_y
+    def __str__(self):
+        output='('+repr(self.x)+','+repr(self.y)+')'
+        return output
+    def __repr__(self):
+        output='('+repr(self.x)+','+repr(self.y)+')'
+        print(output)
+    def __del__(self):
+        print("Deleting the object "+str(self))
+p1=Point(10,20)
+p2=Point(1,2)
+p3=Point()
+
+print(p1)
+print(p2)
+print(p3)
+
+Output-->(10,20)
+         (1,2)
+         (0,0)
+         Deleting the object (10,20)
+         Deleting the object (1,2)
+         Deleting the object (0,0)
+........................................................................................
