@@ -36,25 +36,48 @@ class Point:
         self.x=p_x
         self.y=p_y
     def __str__(self):
-        output='('+repr(self.x)+','+repr(self.y)+')'
+        output='('+str(self.x)+','+str(self.y)+')'
         return output
     def __repr__(self):
-        output='('+repr(self.x)+','+repr(self.y)+')'
+        output='('+str(self.x)+','+str(self.y)+')'
         print(output)
     def __del__(self):
         print("Deleting the object "+str(self))
+class Line:
+    def __init__(self,p1,p2):
+        self.end1=p1
+        self.end2=p2
+    def __str__(self):
+        return "Line starts at "+str(self.end1)+" and Line ends at"+str(self.end2)
+
 p1=Point(10,20)
 p2=Point(1,2)
 p3=Point()
+
 
 print(p1)
 print(p2)
 print(p3)
 
-Output-->(10,20)
-         (1,2)
-         (0,0)
-         Deleting the object (10,20)
-         Deleting the object (1,2)
-         Deleting the object (0,0)
+Line1=Line(p1,p2)
+print(Line1)
+
+def find_center_line(Line):
+    cent_x=(Line.end1.x+Line.end2.x)/2
+    cent_y=(Line.end1.y+Line.end2.y)/2
+    center=Point(cent_x,cent_y)
+    return center
+center_point=find_center_line(Line1)
+print(center_point)
+
+Output-->
+(10,20)
+(1,2)
+(0,0)
+Line starts at (10,20) and Line ends at(1,2)
+(5.5,11.0)
+Deleting the object (10,20)
+Deleting the object (1,2)
+Deleting the object (0,0)
+Deleting the object (5.5,11.0)
 ........................................................................................
