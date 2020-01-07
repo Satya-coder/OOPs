@@ -81,3 +81,78 @@ Deleting the object (1,2)
 Deleting the object (0,0)
 Deleting the object (5.5,11.0)
 ........................................................................................
+
+class complex:
+
+    def __init__(self,x,y):
+        self.real=x
+        self.imag=y
+        
+    def __str__(self):
+        return str(self.real)+ "+" +str(self.imag)+"i"
+        
+    def __add__(self, obj):
+        new_x=self.real+obj.real
+        new_y=self.imag+obj.imag
+        res=complex(new_x,new_y)
+        return res
+        
+    def __sub__(self,obj):
+        real_x=self.real-obj.real
+        imag_y=self.imag-obj.imag
+        res=complex(real_x,imag_y)
+        return res
+        
+    def __truediv__(self,obj):
+        return "Division not supported"
+        
+    def __floordiv__(self,obj):
+        new_x=self.real//obj.real
+        new_y=self.imag//obj.imag
+        res=complex(new_x,new_y)
+        return res
+
+c1=complex(10,20)
+c2=complex(1,2)
+c3=c1+c2
+c4=c1-c2
+print("sum :",c3)
+print("Diff :",c4)
+print("Div :",c1/c2)
+print(c2//c1)
+
+........................................................................................
+
+******************************INHERITANCE***********************************************
+
+Inheritance is the creation of specialized classes from general classes.
+The general class is the base class.
+The new specialized class is the derived class.
+..........................Example.......................................................
+
+class Phone:
+    def textmsg(self):
+        print("Message sent successfully")
+    def call(self):
+        print("Making a call")
+
+class Cameraphone(Phone):
+    #It inherits the textmag() and call() from phone class
+    def picture(self):
+        print("Take a photo")
+
+class Android:
+    def playstore(self):
+        print("Download google pay")
+
+class Smartphone(Cameraphone,Android): #Base classes
+    def call(self):
+        print("Making 4G call")
+
+Mynewphone=Smartphone()
+Mynewphone.textmsg()
+Mynewphone.call()
+Mynewphone.picture()
+Mynewphone.playstore()
+
+
